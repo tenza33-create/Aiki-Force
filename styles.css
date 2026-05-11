@@ -80,8 +80,8 @@ body::before {
 .page-shell {
     position: relative;
     z-index: 1;
-    width: min(1180px, calc(100vw - 32px));
-    margin: 24px auto 48px;
+    width: min(1180px, calc(100vw - 28px));
+    margin: 18px auto 40px;
 }
 
 .hero,
@@ -92,7 +92,7 @@ body::before {
 }
 
 .hero {
-    padding: 28px;
+    padding: 26px;
     border: 1px solid var(--line);
     border-radius: 28px;
     background: linear-gradient(145deg, rgba(255, 249, 236, 0.95), rgba(250, 241, 224, 0.82));
@@ -165,12 +165,12 @@ h3 {
 }
 
 h1 {
-    font-size: clamp(2.6rem, 8vw, 5rem);
+    font-size: clamp(2rem, 7vw, 4.6rem);
     line-height: 0.95;
 }
 
 h2 {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-size: clamp(1.45rem, 4.6vw, 2.8rem);
 }
 
 .hero-grid {
@@ -186,8 +186,8 @@ h2 {
 .intro {
     margin: 0;
     max-width: 16ch;
-    font-size: clamp(1.7rem, 5vw, 3.4rem);
-    line-height: 1.02;
+    font-size: clamp(1.35rem, 4.4vw, 3.2rem);
+    line-height: 1.08;
     font-weight: 800;
 }
 
@@ -197,6 +197,7 @@ h2 {
     color: var(--muted);
     line-height: 1.7;
     font-size: 1rem;
+    overflow-wrap: anywhere;
 }
 
 .hero-actions {
@@ -262,7 +263,7 @@ h2 {
 
 .section-block {
     margin-top: 28px;
-    padding: 28px;
+    padding: 24px;
 }
 
 .section-heading {
@@ -281,6 +282,22 @@ h2 {
 .syllabus-grid,
 .mission-block {
     display: grid;
+
+@media (max-width: 1080px) {
+    .hero {
+        padding: 22px;
+    }
+
+    .section-block,
+    .mission-card,
+    .syllabus-card {
+        padding: 20px;
+    }
+
+    .syllabus-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
     gap: 18px;
 }
 
@@ -337,28 +354,103 @@ h2 {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 247, 231, 0.96));
 }
 
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .syllabus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        margin-bottom: 16px;
+    }
+
 .vip-modal {
     position: fixed;
     inset: 0;
-    display: grid;
-    place-items: center;
+        width: min(100vw - 14px, 100%);
+        margin: 8px auto 20px;
     padding: 16px;
     background: rgba(15, 21, 24, 0.6);
     backdrop-filter: blur(6px);
     z-index: 30;
 }
 
-.vip-modal[hidden] {
+        border-radius: 18px;
     display: none;
 }
 
 .vip-modal-card {
-    width: min(520px, 100%);
+        padding: 16px;
     padding: 22px;
+
+    .hero-panel,
+    .video-card,
+    .vip-panel,
+    .syllabus-card,
+    .mission-card {
+        border-radius: 16px;
+    }
+
+    .topbar {
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .topbar-main {
+        min-width: 0;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+    }
+
+    .vip-trigger {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 0.76rem;
+    }
     border-radius: 20px;
     border: 1px solid var(--line);
     background: linear-gradient(160deg, rgba(255, 250, 240, 0.97), rgba(247, 236, 212, 0.94));
     box-shadow: 0 24px 50px rgba(24, 33, 39, 0.2);
+
+    .supporting-copy,
+    #system-summary,
+    .syllabus-description {
+        font-size: 0.95rem;
+        line-height: 1.62;
+    }
+
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+    .button {
+        min-height: 44px;
+        font-size: 0.94rem;
+    }
+
+    .panel-label {
+        margin-bottom: 10px;
+    }
+
+    .escalation-list {
+        gap: 9px;
+        font-size: 0.93rem;
+    }
 }
 
 .vip-form {
@@ -368,6 +460,75 @@ h2 {
 
 .vip-actions {
     display: flex;
+
+    .principle-card h3 {
+        font-size: 1.03rem;
+    }
+
+    .principle-card p {
+        font-size: 0.95rem;
+    }
+
+    .section-heading {
+        gap: 12px;
+    }
+
+    .filters {
+        gap: 10px;
+    }
+
+    .search-box input {
+        min-height: 44px;
+        border-radius: 14px;
+    }
+
+    .chip,
+    .meta-pill,
+    .tag-list li,
+    .vip-tab {
+        min-height: 32px;
+        font-size: 0.84rem;
+        padding: 5px 10px;
+    }
+
+    .technique-item {
+        padding-top: 12px;
+    }
+
+    .technique-title {
+        font-size: 0.96rem;
+    }
+
+    .technique-sublist {
+        padding-left: 16px;
+        gap: 5px;
+    }
+
+    .videos-grid {
+        gap: 12px;
+    }
+
+    .video-card {
+        padding: 12px;
+    }
+
+    .vip-modal {
+        padding: 10px;
+    }
+
+    .vip-modal-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .vip-menu {
+        gap: 8px;
+    }
+
+    .vip-tab {
+        flex: 1 1 48%;
+        justify-content: center;
+    }
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -376,10 +537,48 @@ h2 {
     margin: 0;
     min-height: 20px;
     font-size: 0.94rem;
-    color: var(--accent-strong);
 }
 
-.principles-section {
+@media (max-width: 420px) {
+    .page-shell {
+        width: min(100vw - 10px, 100%);
+    }
+
+    .hero,
+    .section-block,
+    .mission-card,
+    .syllabus-card {
+        border-radius: 14px;
+    }
+
+    .hero,
+    .section-block {
+        padding: 14px;
+    }
+
+    .eyebrow {
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+    }
+
+    h2 {
+        font-size: clamp(1.28rem, 7vw, 1.7rem);
+    }
+
+    .intro {
+        font-size: clamp(1.2rem, 7.2vw, 1.55rem);
+    }
+
+    .syllabus-card,
+    .mission-card,
+    .vip-panel {
+        padding: 14px;
+    }
+
+    .section-note {
+        padding: 12px;
+        font-size: 0.88rem;
+    }
     background:
         radial-gradient(circle at top right, rgba(168, 59, 18, 0.13), transparent 48%),
         linear-gradient(150deg, rgba(255, 251, 242, 0.94), rgba(250, 241, 224, 0.9));
@@ -652,6 +851,7 @@ h2 {
     color: var(--muted);
     display: grid;
     gap: 6px;
+    overflow-wrap: anywhere;
 }
 
 .section-note {
@@ -672,19 +872,44 @@ h2 {
         display: grid;
     }
 
+    .page-shell {
+        width: min(100vw - 22px, 100%);
+        margin: 14px auto 30px;
+    }
+
+    .hero {
+        padding: 22px;
+    }
+
+    .section-block {
+        padding: 22px;
+    }
+
     .filters {
         min-width: 0;
+    }
+
+    .search-box input {
+        min-height: 44px;
     }
 
     .videos-grid {
         grid-template-columns: 1fr;
     }
+
+    .syllabus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vip-modal-card {
+        padding: 18px;
+    }
 }
 
 @media (max-width: 640px) {
     .page-shell {
-        width: min(100vw - 18px, 100%);
-        margin: 10px auto 24px;
+        width: min(100vw - 14px, 100%);
+        margin: 8px auto 20px;
     }
 
     .hero,
@@ -696,11 +921,45 @@ h2 {
 
     .hero,
     .section-block {
-        padding: 18px;
+        padding: 16px;
+    }
+
+    .topbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 10px;
+    }
+
+    .topbar-main {
+        min-width: 0;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 13px;
+        font-size: 0.82rem;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+    h2 {
+        font-size: clamp(1.45rem, 6vw, 2rem);
+    }
+
+    .vip-trigger {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 0.75rem;
     }
 
     .intro {
         max-width: none;
+        font-size: clamp(1.45rem, 8.8vw, 2.1rem);
     }
 
     .principles-grid {
@@ -710,6 +969,36 @@ h2 {
 
     .principle-card {
         min-height: 0;
+    }
+
+    .principle-card,
+    .mission-card,
+    .video-card,
+    .syllabus-card,
+    .vip-panel {
+        padding: 14px;
+    }
+
+    .video-label {
+        margin-bottom: 8px;
+        font-size: 0.76rem;
+    }
+
+    .vip-menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .vip-tab {
+        width: 100%;
+        min-height: 38px;
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+
+    .search-box {
+        font-size: 0.88rem;
     }
 
     .hero-actions,
@@ -722,5 +1011,36 @@ h2 {
 
     .topbar {
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 420px) {
+    .section-block,
+    .hero {
+        padding: 14px;
+    }
+
+    .topbar-main {
+        gap: 8px;
+    }
+
+    .eyebrow {
+        letter-spacing: 0.14em;
+        font-size: 0.72rem;
+    }
+
+    .hero-actions .button,
+    .vip-actions .button {
+        width: 100%;
+    }
+
+    .vip-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .meta-pill,
+    .chip,
+    .tag-list li {
+        font-size: 0.84rem;
     }
 }
