@@ -24,6 +24,9 @@ const vipPanels = Array.from(document.querySelectorAll("[data-vip-panel]"));
 
 const VIP_PASSWORD = "135090";
 const VIP_STORAGE_KEY = "aiki_force_vip_unlocked";
+const TECHNIQUE_VIDEO_LINKS = {
+    "Kata Juji Jime": "https://www.youtube.com/watch?v=3VZVUAmiMD8&t=51s"
+};
 
 const BACKGROUND_IMAGES = [
     "fotos-fondo/388161_247532985366392_1434852674_n.jpg",
@@ -321,10 +324,31 @@ function renderSyllabus() {
                     const details = item.details?.length
                         ? `<ul class="technique-sublist">${item.details.map((detail) => `<li>${detail}</li>`).join("")}</ul>`
                         : "";
+                    const videoUrl = TECHNIQUE_VIDEO_LINKS[item.name];
+                    const videoLink = videoUrl
+                        ? `
+                            <a
+                                class="technique-video-link"
+                                href="${videoUrl}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Ver video de ${item.name}"
+                                title="Ver video"
+                            >
+                                <svg class="technique-video-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                    <circle cx="10" cy="10" r="9" />
+                                    <polygon points="8,6.5 8,13.5 13.5,10" />
+                                </svg>
+                            </a>
+                        `
+                        : "";
 
                     return `
                         <li class="technique-item">
-                            <p class="technique-title">${item.name}</p>
+                            <p class="technique-title-row">
+                                <span class="technique-title">${item.name}</span>
+                                ${videoLink}
+                            </p>
                             ${item.description ? `<p class="syllabus-description">${item.description}</p>` : ""}
                             ${details}
                         </li>
