@@ -100,6 +100,18 @@ function setupAutoplayVideos() {
     autoplayVideos.forEach((video) => {
         video.muted = true;
         video.playsInline = true;
+        video.addEventListener("error", () => {
+            const fallback = video.parentElement?.querySelector("[data-video-fallback]");
+            if (fallback) {
+                fallback.hidden = false;
+            }
+        });
+        video.addEventListener("loadeddata", () => {
+            const fallback = video.parentElement?.querySelector("[data-video-fallback]");
+            if (fallback) {
+                fallback.hidden = true;
+            }
+        });
         observer.observe(video);
     });
 
