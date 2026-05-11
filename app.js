@@ -333,12 +333,13 @@ function renderSyllabus() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Ver video de ${item.name}"
-                                title="Ver video"
+                                title="Ver enlace"
                             >
                                 <svg class="technique-video-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
                                     <circle cx="10" cy="10" r="9" />
                                     <polygon points="8,6.5 8,13.5 13.5,10" />
                                 </svg>
+                                <span class="technique-video-text">Ver enlace</span>
                             </a>
                         `
                         : "";
