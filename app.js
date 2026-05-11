@@ -25,7 +25,8 @@ const vipPanels = Array.from(document.querySelectorAll("[data-vip-panel]"));
 const VIP_PASSWORD = "135090";
 const VIP_STORAGE_KEY = "aiki_force_vip_unlocked";
 const TECHNIQUE_VIDEO_LINKS = {
-    "Kata Juji Jime": "https://www.youtube.com/watch?v=3VZVUAmiMD8&t=51s"
+    "Kata Juji Jime": "https://www.youtube.com/watch?v=3VZVUAmiMD8&t=51s",
+    "Engrilletamiento trasero": "https://www.youtube.com/watch?v=P9wswED0uEY"
 };
 
 const BACKGROUND_IMAGES = [
