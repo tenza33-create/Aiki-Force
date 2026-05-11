@@ -11,6 +11,7 @@ const syllabusGrid = document.getElementById("syllabus-grid");
 const searchInput = document.getElementById("search-input");
 const filterChips = document.getElementById("filter-chips");
 const backgroundRotator = document.getElementById("background-rotator");
+const autoplayVideos = Array.from(document.querySelectorAll("[data-autoplay-video]"));
 
 const BACKGROUND_IMAGES = [
     "fotos-fondo/388161_247532985366392_1434852674_n.jpg",
@@ -59,6 +60,59 @@ async function setupBackgroundRotator() {
         currentIndex = (currentIndex + 1) % slides.length;
         slides[currentIndex].classList.add("is-visible");
     }, 5000);
+}
+
+function setupAutoplayVideos() {
+    if (!autoplayVideos.length) {
+        return;
+    }
+
+    const visibleVideos = new Set();
+
+    const playVideo = async (video) => {
+        try {
+            await video.play();
+        } catch (_error) {
+            video.controls = true;
+        }
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                const video = entry.target;
+
+                if (entry.isIntersecting && !document.hidden) {
+                    visibleVideos.add(video);
+                    playVideo(video);
+                    return;
+                }
+
+                visibleVideos.delete(video);
+                video.pause();
+            });
+        },
+        {
+            threshold: 0.5
+        }
+    );
+
+    autoplayVideos.forEach((video) => {
+        video.muted = true;
+        video.playsInline = true;
+        observer.observe(video);
+    });
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            visibleVideos.forEach((video) => video.pause());
+            return;
+        }
+
+        visibleVideos.forEach((video) => {
+            playVideo(video);
+        });
+    });
 }
 
 function renderPrinciples() {
@@ -200,3 +254,4 @@ renderIdentity();
 createFilterChips();
 renderSyllabus();
 setupBackgroundRotator();
+setupAutoplayVideos();
