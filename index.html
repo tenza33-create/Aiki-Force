@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiki-Force | Sistema Hibrido Escalable</title>
+    <meta name="description" content="Aiki-Force: sistema hibrido escalable de defensa personal, control policial y respuesta civil.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-rotator" id="background-rotator" aria-hidden="true"></div>
+    <div class="page-shell">
+        <header class="hero">
+            <nav class="topbar">
+                <span class="brand-mark">AF</span>
+                <div>
+                    <p class="eyebrow">Sistema hibrido escalable</p>
+                    <h1>Aiki-Force</h1>
+                </div>
+            </nav>
+
+            <section class="hero-grid">
+                <div class="hero-copy">
+                    <p class="intro">
+                        Un sistema de lucha orientado al control, la inmovilizacion y el escalado progresivo solo cuando la situacion lo exige.
+                    </p>
+                    <p class="supporting-copy">
+                        Nace de la convergencia entre aikido, krav maga y defensa policial, con una logica clara: primero prevenir, despues controlar, luego reducir y, solo si no queda alternativa, neutralizar la agresion.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button primary" href="#temario">Ver temario</a>
+                        <a class="button secondary" href="#principios">Principios</a>
+                    </div>
+                </div>
+
+                <aside class="hero-panel">
+                    <p class="panel-label">Como responde Aiki-Force</p>
+                    <ol class="escalation-list" id="escalation-list"></ol>
+                </aside>
+            </section>
+        </header>
+
+        <main>
+            <section class="section-block principles-section" id="principios">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Base del sistema</p>
+                        <h2>Principios rectores</h2>
+                        <p class="principles-intro">Cuatro reglas simples para decidir cuando controlar, cuando reducir y cuando escalar.</p>
+                    </div>
+                </div>
+                <div class="principles-grid" id="principles-grid"></div>
+            </section>
+
+            <section class="section-block mission-block">
+                <div class="mission-card">
+                    <p class="eyebrow">Identidad</p>
+                    <h2>Defensa personal, policial y civil</h2>
+                    <p id="system-summary"></p>
+                </div>
+                <div class="mission-card compact">
+                    <p class="eyebrow">Uso</p>
+                    <ul class="tag-list" id="use-cases"></ul>
+                </div>
+            </section>
+
+            <section class="section-block" id="temario">
+                <div class="section-heading with-controls">
+                    <div>
+                        <p class="eyebrow">Contenido vivo</p>
+                        <h2>Temario DPPC</h2>
+                    </div>
+                    <div class="filters">
+                        <label class="search-box" for="search-input">
+                            <span>Buscar tecnica o tema</span>
+                            <input id="search-input" type="search" placeholder="Ej. kote gaeshi, cuchillo, montada">
+                        </label>
+                        <div class="filter-chips" id="filter-chips"></div>
+                    </div>
+                </div>
+
+                <div class="syllabus-grid" id="syllabus-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="temario.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
