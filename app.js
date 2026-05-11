@@ -18,6 +18,7 @@ const vipForm = document.getElementById("vip-form");
 const vipPasswordInput = document.getElementById("vip-password");
 const vipFeedback = document.getElementById("vip-feedback");
 const vipCancelButton = document.getElementById("vip-cancel");
+const vipOffButton = document.getElementById("vip-off");
 const vipSection = document.getElementById("vip-zone");
 const vipTabs = Array.from(document.querySelectorAll("[data-vip-tab]"));
 const vipPanels = Array.from(document.querySelectorAll("[data-vip-panel]"));
@@ -155,15 +156,38 @@ function setActiveVipTab(tabName) {
     });
 }
 
+function syncVipTrigger() {
+    if (!vipOpenButton || !vipSection) {
+        return;
+    }
+
+    const isUnlocked = !vipSection.classList.contains("is-locked");
+    vipOpenButton.textContent = isUnlocked ? "Salir VIP" : "VIP";
+}
+
 function unlockVip() {
     if (!vipSection) {
         return;
     }
 
     vipSection.classList.remove("is-locked");
+    syncVipTrigger();
     window.localStorage.setItem(VIP_STORAGE_KEY, "true");
     setActiveVipTab("aikido");
     vipSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function lockVip() {
+    if (!vipSection) {
+        return;
+    }
+
+    vipSection.classList.add("is-locked");
+    syncVipTrigger();
+    window.localStorage.removeItem(VIP_STORAGE_KEY);
+    setActiveVipTab("aikido");
+    vipOpenButton?.focus();
+    vipOpenButton?.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function closeVipModal() {
@@ -195,10 +219,11 @@ function setupVipAccess() {
     if (alreadyUnlocked) {
         vipSection.classList.remove("is-locked");
     }
+    syncVipTrigger();
 
     vipOpenButton.addEventListener("click", () => {
         if (!vipSection.classList.contains("is-locked")) {
-            vipSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            lockVip();
             return;
         }
 
@@ -206,6 +231,7 @@ function setupVipAccess() {
     });
 
     vipCancelButton?.addEventListener("click", closeVipModal);
+    vipOffButton?.addEventListener("click", lockVip);
 
     vipModal.addEventListener("click", (event) => {
         if (event.target === vipModal) {
