@@ -12,6 +12,18 @@ const searchInput = document.getElementById("search-input");
 const filterChips = document.getElementById("filter-chips");
 const backgroundRotator = document.getElementById("background-rotator");
 const autoplayVideos = Array.from(document.querySelectorAll("[data-autoplay-video]"));
+const vipOpenButton = document.getElementById("vip-open");
+const vipModal = document.getElementById("vip-modal");
+const vipForm = document.getElementById("vip-form");
+const vipPasswordInput = document.getElementById("vip-password");
+const vipFeedback = document.getElementById("vip-feedback");
+const vipCancelButton = document.getElementById("vip-cancel");
+const vipSection = document.getElementById("vip-zone");
+const vipTabs = Array.from(document.querySelectorAll("[data-vip-tab]"));
+const vipPanels = Array.from(document.querySelectorAll("[data-vip-panel]"));
+
+const VIP_PASSWORD = "135090";
+const VIP_STORAGE_KEY = "aiki_force_vip_unlocked";
 
 const BACKGROUND_IMAGES = [
     "fotos-fondo/388161_247532985366392_1434852674_n.jpg",
@@ -123,6 +135,102 @@ function setupAutoplayVideos() {
 
         visibleVideos.forEach((video) => {
             playVideo(video);
+        });
+    });
+}
+
+function setActiveVipTab(tabName) {
+    vipTabs.forEach((tabButton) => {
+        const isActive = tabButton.dataset.vipTab === tabName;
+        tabButton.classList.toggle("active", isActive);
+        tabButton.setAttribute("aria-selected", String(isActive));
+    });
+
+    vipPanels.forEach((panel) => {
+        panel.hidden = panel.dataset.vipPanel !== tabName;
+    });
+}
+
+function unlockVip() {
+    if (!vipSection) {
+        return;
+    }
+
+    vipSection.classList.remove("is-locked");
+    window.localStorage.setItem(VIP_STORAGE_KEY, "true");
+    setActiveVipTab("aikido");
+    vipSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closeVipModal() {
+    if (!vipModal) {
+        return;
+    }
+
+    vipModal.hidden = true;
+    vipFeedback.textContent = "";
+    vipForm.reset();
+}
+
+function openVipModal() {
+    if (!vipModal) {
+        return;
+    }
+
+    vipModal.hidden = false;
+    vipFeedback.textContent = "";
+    vipPasswordInput.focus();
+}
+
+function setupVipAccess() {
+    if (!vipOpenButton || !vipModal || !vipForm || !vipSection) {
+        return;
+    }
+
+    const alreadyUnlocked = window.localStorage.getItem(VIP_STORAGE_KEY) === "true";
+    if (alreadyUnlocked) {
+        vipSection.classList.remove("is-locked");
+    }
+
+    vipOpenButton.addEventListener("click", () => {
+        if (!vipSection.classList.contains("is-locked")) {
+            vipSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            return;
+        }
+
+        openVipModal();
+    });
+
+    vipCancelButton?.addEventListener("click", closeVipModal);
+
+    vipModal.addEventListener("click", (event) => {
+        if (event.target === vipModal) {
+            closeVipModal();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !vipModal.hidden) {
+            closeVipModal();
+        }
+    });
+
+    vipForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (vipPasswordInput.value.trim() === VIP_PASSWORD) {
+            closeVipModal();
+            unlockVip();
+            return;
+        }
+
+        vipFeedback.textContent = "Contrasena incorrecta. Intentalo de nuevo.";
+        vipPasswordInput.select();
+    });
+
+    vipTabs.forEach((tabButton) => {
+        tabButton.addEventListener("click", () => {
+            setActiveVipTab(tabButton.dataset.vipTab);
         });
     });
 }
@@ -267,3 +375,4 @@ createFilterChips();
 renderSyllabus();
 setupBackgroundRotator();
 setupAutoplayVideos();
+setupVipAccess();

@@ -15,11 +15,14 @@
     <div class="page-shell">
         <header class="hero">
             <nav class="topbar">
-                <span class="brand-mark">AF</span>
-                <div>
-                    <p class="eyebrow">Sistema hibrido escalable</p>
-                    <h1>Aiki-Force</h1>
+                <div class="topbar-main">
+                    <span class="brand-mark">AF</span>
+                    <div>
+                        <p class="eyebrow">Sistema hibrido escalable</p>
+                        <h1>Aiki-Force</h1>
+                    </div>
                 </div>
+                <button class="vip-trigger" id="vip-open" type="button" aria-haspopup="dialog" aria-controls="vip-modal">VIP</button>
             </nav>
 
             <section class="hero-grid">
@@ -45,6 +48,31 @@
         </header>
 
         <main>
+            <section class="section-block vip-section is-locked" id="vip-zone" aria-live="polite">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Acceso privado</p>
+                        <h2>Area VIP</h2>
+                        <p class="vip-intro">Aqui puedes desarrollar el contenido especifico por disciplina.</p>
+                    </div>
+                </div>
+
+                <div class="vip-menu" role="tablist" aria-label="Menu VIP">
+                    <button class="vip-tab active" id="vip-tab-aikido" type="button" data-vip-tab="aikido" role="tab" aria-selected="true" aria-controls="vip-panel-aikido">Aikido</button>
+                    <button class="vip-tab" id="vip-tab-krav" type="button" data-vip-tab="krav" role="tab" aria-selected="false" aria-controls="vip-panel-krav">Krav Maga</button>
+                </div>
+
+                <article class="vip-panel" id="vip-panel-aikido" data-vip-panel="aikido" role="tabpanel" aria-labelledby="vip-tab-aikido">
+                    <h3>Aikido</h3>
+                    <p class="syllabus-description">Espacio listo para que pongas tu explicacion de tecnicas especificas de Aikido.</p>
+                </article>
+
+                <article class="vip-panel" id="vip-panel-krav" data-vip-panel="krav" role="tabpanel" aria-labelledby="vip-tab-krav" hidden>
+                    <h3>Krav Maga</h3>
+                    <p class="syllabus-description">Espacio listo para que pongas tu explicacion de tecnicas especificas de Krav Maga.</p>
+                </article>
+            </section>
+
             <section class="section-block principles-section" id="principios">
                 <div class="section-heading">
                     <div>
@@ -120,6 +148,25 @@
                 <div class="syllabus-grid" id="syllabus-grid"></div>
             </section>
         </main>
+    </div>
+
+    <div class="vip-modal" id="vip-modal" role="dialog" aria-modal="true" aria-labelledby="vip-modal-title" hidden>
+        <div class="vip-modal-card">
+            <p class="eyebrow">Area restringida</p>
+            <h2 id="vip-modal-title">Acceso VIP</h2>
+            <p class="syllabus-description">Introduce la contrasena para abrir los menus privados.</p>
+            <form class="vip-form" id="vip-form">
+                <label class="search-box" for="vip-password">
+                    <span>Contrasena</span>
+                    <input id="vip-password" type="password" inputmode="numeric" autocomplete="off" placeholder="Introduce la contrasena" required>
+                </label>
+                <p class="vip-feedback" id="vip-feedback" aria-live="polite"></p>
+                <div class="vip-actions">
+                    <button class="button primary" type="submit">Entrar</button>
+                    <button class="button secondary" id="vip-cancel" type="button">Cancelar</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="temario.js"></script>
