@@ -230,7 +230,7 @@ const AIKI_FORCE = {
         {
             title: "Defensa en situaciones de estrangulamiento",
             description: "Respuestas contra agarres al cuello, candados y presiones en pie o en transicion.",
-            tags: ["control", "impacto"],
+            tags: ["control", "estrangulacion"],
             items: [
                 {
                     name: "Estrangulamiento por delante de pie",
