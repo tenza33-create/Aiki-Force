@@ -64,44 +64,58 @@ const AIKI_FORCE = {
     syllabus: [
         {
             title: "Golpes con la parte superior del cuerpo",
-            description: "Impacto corto y funcional para abrir espacio, romper equilibrio o cortar la agresion.",
+            description: "Modulo de impacto superior para abrir linea, romper ritmo y preparar control o salida.",
             tags: ["impacto"],
             items: [
                 {
                     name: "Directo de izquierda y derecho",
-                    description: "Golpe recto y rapido con el puño, dirigido al rostro o torso del oponente."
+                    description: "Golpe recto de entrada para interrumpir avance y fijar distancia.",
+                    details: [
+                        "Objetivo: nariz, menton, esternon o linea media del torso.",
+                        "Aplicacion: salir con guardia cerrada y hombro protegiendo mandibula.",
+                        "Finalizacion: encadenar control de brazo, clinch corto o desplazamiento lateral."
+                    ]
                 },
                 {
                     name: "Croche derecho e izquierdo",
-                    description: "Golpe curvo con el puño, dirigido a los costados o rostro del oponente."
+                    description: "Golpe curvo para castigar lateral y romper estructura defensiva.",
+                    details: [
+                        "Objetivo: mandibula, costillas flotantes o zona hepatica.",
+                        "Aplicacion: rotar cadera y pie de apoyo sin abrir la guardia.",
+                        "Finalizacion: volver al eje y continuar con control o salida."
+                    ]
                 },
                 {
                     name: "Uppercut derecho e izquierdo",
-                    description: "Golpe ascendente con el puño, dirigido al menton o torso del oponente."
+                    description: "Golpe ascendente para elevar la cabeza y romper postura en corto.",
+                    details: [
+                        "Objetivo: menton, plexo o zona abdominal alta.",
+                        "Aplicacion: flexion corta de piernas y empuje vertical controlado.",
+                        "Finalizacion: transicion a derribo corto o separacion tactica."
+                    ]
                 },
                 {
                     name: "Codazos",
                     details: [
-                        "Frontal: golpe directo con el codo hacia adelante, dirigido al rostro o torso.",
-                        "Lateral recto: golpe con el codo hacia los costados, ideal para combate cerrado.",
-                        "Lateral: movimiento curvo con el codo hacia los lados, buscando costillas u otras zonas vulnerables.",
-                        "Hacia atras: golpe con el codo hacia atras para defensa desde retaguardia.",
-                        "De arriba a abajo: golpe descendente dirigido al rostro o clavicula."
+                        "Objetivo: cara, mandibula, clavicula y costado en distancia corta.",
+                        "Aplicacion: usar codo frontal, lateral, lateral curvo, trasero y descendente segun angulo.",
+                        "Finalizacion: mantener contacto, controlar cabeza o brazo y reubicar base."
                     ]
                 },
                 {
                     name: "Picahielo con dedos",
                     details: [
-                        "Golpe rapido y preciso con los dedos a puntos sensibles como cuello u ojos."
+                        "Objetivo: puntos sensibles como cuello, ojos o hueco supraesternal.",
+                        "Aplicacion: accion explosiva de distraccion para crear ventana de escape.",
+                        "Finalizacion: salir de linea y recuperar guardia inmediatamente."
                     ]
                 },
                 {
                     name: "Golpes de martillo",
                     details: [
-                        "Frontal: golpe con puño cerrado en movimiento descendente al rostro o torso.",
-                        "Lateral: golpe hacia los costados buscando costillas o zonas vulnerables.",
-                        "Trasero: golpe hacia atras para defensa en retaguardia.",
-                        "De arriba a abajo: golpe descendente dirigido al rostro o clavicula."
+                        "Objetivo: nariz, sien, clavicula, antebrazo o mano armada.",
+                        "Aplicacion: variantes frontal, lateral, trasera y descendente sin perder estructura.",
+                        "Finalizacion: enlazar con control articular, derribo o retirada segura."
                     ]
                 }
             ]
