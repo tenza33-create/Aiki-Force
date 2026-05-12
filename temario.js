@@ -186,19 +186,123 @@ const AIKI_FORCE = {
             description: "Base de inmovilizacion y conduccion propia del componente aiki y policial del sistema.",
             tags: ["control", "policial"],
             items: [
-                { name: "Ikkyo", description: "Control del brazo mediante palanca hacia abajo para inmovilizar con seguridad." },
-                { name: "Nikyo", description: "Luxacion de muñeca que fuerza al oponente a bajar al suelo." },
-                { name: "Sankyo", description: "Rotacion de la muñeca hacia un angulo no natural para inmovilizar con dolor controlado." },
-                { name: "Gokyo", description: "Luxacion avanzada que dirige el brazo hacia el suelo manteniendo equilibrio y control." },
-                { name: "Kokyonage", description: "Proyeccion basada en desequilibrio y flujo del movimiento." },
-                { name: "Sumiotoshi", description: "Proyeccion descendente que desestabiliza y lleva al oponente al suelo." },
-                { name: "Tenchinage", description: "Movimiento circular con control de brazos para romper estructura y proyectar." },
-                { name: "Yonkyo", description: "Presion sobre el nervio radial para inmovilizacion y dolor controlado." },
-                { name: "Udekimenage", description: "Palanca de brazo para lanzar hacia adelante o al suelo." },
-                { name: "Hijikimeosae", description: "Inmovilizacion del codo mediante presion y control total del brazo." },
-                { name: "Uchi Kaiten Sankyo", description: "Rotacion interna que controla muñeca y brazo y entra a inmovilizacion." },
-                { name: "Ushiro Kiri Otoshi", description: "Movimiento descendente desde retaguardia para proyectar desde la espalda." },
-                { name: "Iriminage", description: "Entrada directa para desestabilizar y proyectar al suelo." }
+                {
+                    name: "Ikkyo",
+                    description: "Control primario de codo y muñeca para dirigir al agresor al suelo con estructura segura.",
+                    details: [
+                        "Objetivo: cortar avance y recuperar iniciativa con control de eje.",
+                        "Aplicacion: entrar por fuera, fijar codo y guiar la linea del hombro hacia abajo.",
+                        "Finalizacion: inmovilizacion estable o conduccion segun contexto operativo."
+                    ]
+                },
+                {
+                    name: "Nikyo",
+                    description: "Luxacion de muñeca de alta sensibilidad para romper agarre y forzar descenso.",
+                    details: [
+                        "Objetivo: neutralizar resistencia del brazo sin perder control postural.",
+                        "Aplicacion: capturar muñeca con giro progresivo y paso de angulo corto.",
+                        "Finalizacion: control en pie, reduccion al suelo o transicion a esposamiento."
+                    ]
+                },
+                {
+                    name: "Sankyo",
+                    description: "Rotacion espiral de muñeca y antebrazo para bloquear hombro y columna.",
+                    details: [
+                        "Objetivo: desestructurar al oponente y limitar su capacidad de golpeo.",
+                        "Aplicacion: elevar y espiralar el brazo en diagonal manteniendo codos cerrados.",
+                        "Finalizacion: conduccion dinamica o control terminal segun nivel de amenaza."
+                    ]
+                },
+                {
+                    name: "Gokyo",
+                    description: "Variacion de control sobre brazo extendido, especialmente util ante agarres firmes o arma blanca.",
+                    details: [
+                        "Objetivo: fijar codo-hombro evitando recuperacion del brazo atacante.",
+                        "Aplicacion: presion lineal con base baja y control de muñeca en pronacion.",
+                        "Finalizacion: inmovilizacion con vigilancia de mano libre y entorno."
+                    ]
+                },
+                {
+                    name: "Kokyonage",
+                    description: "Proyeccion por respiracion y sincronizacion corporal sin depender de fuerza bruta.",
+                    details: [
+                        "Objetivo: aprovechar impulso del atacante para desequilibrar su centro.",
+                        "Aplicacion: entrada fluida con rotacion de tronco y direccion de hombros.",
+                        "Finalizacion: separacion tactica o control inmediato en suelo."
+                    ]
+                },
+                {
+                    name: "Sumiotoshi",
+                    description: "Caida a esquina que rompe base y proyecta mediante vacio y direccion.",
+                    details: [
+                        "Objetivo: sacar al agresor de su linea fuerte y llevarlo a apoyo comprometido.",
+                        "Aplicacion: desplazamiento diagonal, traccion minima y guia de cabeza-hombro.",
+                        "Finalizacion: control de brazo en suelo o salida de seguridad."
+                    ]
+                },
+                {
+                    name: "Tenchinage",
+                    description: "Trabajo coordinado cielo-tierra con ambas manos para abrir estructura y proyectar.",
+                    details: [
+                        "Objetivo: dividir fuerzas del atacante en dos direcciones opuestas.",
+                        "Aplicacion: una mano eleva y la otra corta, con giro de cadera continuo.",
+                        "Finalizacion: derribo limpio y toma de distancia controlada."
+                    ]
+                },
+                {
+                    name: "Yonkyo",
+                    description: "Control por presion neural en antebrazo para inmovilizar y conducir.",
+                    details: [
+                        "Objetivo: generar cumplimiento inmediato con dolor dosificado.",
+                        "Aplicacion: punto de presion sobre radial con alineacion de hombros y codo.",
+                        "Finalizacion: conduccion, fijacion en pared o reduccion asistida."
+                    ]
+                },
+                {
+                    name: "Udekimenage",
+                    description: "Proyeccion por bloqueo de brazo y extension corporal en avance.",
+                    details: [
+                        "Objetivo: anular linea de ataque y romper equilibrio hacia adelante.",
+                        "Aplicacion: controlar codo, cerrar angulo y proyectar con paso decidido.",
+                        "Finalizacion: continuidad a control en suelo o retirada estrategica."
+                    ]
+                },
+                {
+                    name: "Hijikimeosae",
+                    description: "Inmovilizacion de codo con presion descendente para fijar al oponente.",
+                    details: [
+                        "Objetivo: impedir reincorporacion y bloquear brazo de riesgo.",
+                        "Aplicacion: mantener rodillas estables, peso centrado y codo controlado.",
+                        "Finalizacion: retencion segura hasta apoyo o fin del incidente."
+                    ]
+                },
+                {
+                    name: "Uchi Kaiten Sankyo",
+                    description: "Entrada de rotacion interna que conecta captura de muñeca con espiral de control.",
+                    details: [
+                        "Objetivo: girar al agresor sobre su eje para cortar su capacidad de reaccion.",
+                        "Aplicacion: pivot interno, conexion de codos y control continuo de muñeca.",
+                        "Finalizacion: conduccion en circulo corto o inmovilizacion final."
+                    ]
+                },
+                {
+                    name: "Ushiro Kiri Otoshi",
+                    description: "Corte descendente desde retaguardia para quebrar postura y proyectar.",
+                    details: [
+                        "Objetivo: responder a presion trasera sin girar desordenadamente.",
+                        "Aplicacion: bajar centro, cortar linea y dirigir caida por diagonal.",
+                        "Finalizacion: control de espalda y brazo dominante del atacante."
+                    ]
+                },
+                {
+                    name: "Iriminage",
+                    description: "Entrada profunda sobre angulo muerto para desestabilizar y derribar.",
+                    details: [
+                        "Objetivo: ocupar espacio interno y cancelar segunda accion ofensiva.",
+                        "Aplicacion: paso irimi con control de cabeza/cuello y giro de cadera.",
+                        "Finalizacion: proyeccion, comprobacion del entorno y salida segura."
+                    ]
+                }
             ]
         },
         {
