@@ -1,6 +1,7 @@
 const state = {
     search: "",
-    tag: "todos"
+    tag: "todos",
+    order: "progresion"
 };
 
 const principlesGrid = document.getElementById("principles-grid");
@@ -9,6 +10,7 @@ const systemSummary = document.getElementById("system-summary");
 const useCasesList = document.getElementById("use-cases");
 const syllabusGrid = document.getElementById("syllabus-grid");
 const searchInput = document.getElementById("search-input");
+const orderSelect = document.getElementById("order-select");
 const filterChips = document.getElementById("filter-chips");
 const backgroundRotator = document.getElementById("background-rotator");
 const autoplayVideos = Array.from(document.querySelectorAll("[data-autoplay-video]"));
@@ -36,6 +38,29 @@ const BACKGROUND_IMAGES = [
     "fotos-fondo/DPP-Hikari_01.jpg",
     "fotos-fondo/OIP.webp"
 ];
+
+const PROGRESSION_ORDER = [
+    "Golpes con la parte superior del cuerpo",
+    "Golpes con las piernas",
+    "Tecnicas de control",
+    "Tecnicas de proyeccion y llaves",
+    "Proyecciones y derribos con barridos",
+    "Proyecciones con cuerpo y levantamientos",
+    "Tecnicas de agarre y barrido con apoyo",
+    "Defensa en situaciones de estrangulamiento",
+    "Escapadas ante abrazo del oso y agarres de control",
+    "Suelo: defensas, escapadas y tecnicas",
+    "Tecnicas de inmovilizacion",
+    "Estrangulamientos en suelo y defensas asociadas",
+    "Tecnicas de estrangulacion",
+    "Palo y baston",
+    "Cuchillo",
+    "Arma de fuego y arma larga",
+    "Proteccion VIP y defensas variadas",
+    "Engrilletamiento y control policial"
+];
+
+const PROGRESSION_INDEX = new Map(PROGRESSION_ORDER.map((title, index) => [title, index]));
 
 async function loadImage(url) {
     return new Promise((resolve) => {
@@ -296,7 +321,7 @@ function createFilterChips() {
     filterChips.innerHTML = tags
         .map(
             (tag) => `
-                <button class="chip ${tag === state.tag ? "active" : ""}" type="button" data-tag="${tag}">
+                <button class="chip ${getTagClass(tag)} ${tag === state.tag ? "active" : ""}" type="button" data-tag="${tag}">
                     ${tag}
                 </button>
             `
@@ -319,6 +344,10 @@ function normalizeText(value) {
         .replace(/[\u0300-\u036f]/g, "");
 }
 
+function getTagClass(tag) {
+    return `tag-${normalizeText(tag).replace(/\s+/g, "-")}`;
+}
+
 function sectionMatches(section, normalizedSearch) {
     if (!normalizedSearch) {
         return true;
@@ -336,13 +365,47 @@ function sectionMatches(section, normalizedSearch) {
     return body.includes(normalizedSearch);
 }
 
+function sortSyllabusSections(sections) {
+    const sortedSections = [...sections];
+
+    if (state.order === "alfabetico") {
+        sortedSections.sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
+        return sortedSections;
+    }
+
+    if (state.order === "bloques") {
+        sortedSections.sort((a, b) => {
+            const bySize = b.items.length - a.items.length;
+            if (bySize !== 0) {
+                return bySize;
+            }
+
+            return a.title.localeCompare(b.title, "es", { sensitivity: "base" });
+        });
+        return sortedSections;
+    }
+
+    sortedSections.sort((a, b) => {
+        const orderA = PROGRESSION_INDEX.get(a.title) ?? Number.MAX_SAFE_INTEGER;
+        const orderB = PROGRESSION_INDEX.get(b.title) ?? Number.MAX_SAFE_INTEGER;
+
+        if (orderA !== orderB) {
+            return orderA - orderB;
+        }
+
+        return a.title.localeCompare(b.title, "es", { sensitivity: "base" });
+    });
+
+    return sortedSections;
+}
+
 function renderSyllabus() {
     const normalizedSearch = normalizeText(state.search.trim());
 
-    const visibleSections = AIKI_FORCE.syllabus.filter((section) => {
+    const visibleSections = sortSyllabusSections(AIKI_FORCE.syllabus.filter((section) => {
         const matchesTag = state.tag === "todos" || section.tags.includes(state.tag);
         return matchesTag && sectionMatches(section, normalizedSearch);
-    });
+    }));
 
     syllabusGrid.innerHTML = visibleSections
         .map((section) => {
@@ -394,7 +457,7 @@ function renderSyllabus() {
                         <span class="meta-pill">${section.items.length} bloques</span>
                     </div>
                     <ul class="meta-list">
-                        ${section.tags.map((tag) => `<li class="meta-pill">${tag}</li>`).join("")}
+                        ${section.tags.map((tag) => `<li class="meta-pill ${getTagClass(tag)}">${tag}</li>`).join("")}
                     </ul>
                     ${section.note ? `<p class="section-note">${section.note}</p>` : ""}
                     <ul class="technique-list">
@@ -417,6 +480,11 @@ function renderSyllabus() {
 
 searchInput.addEventListener("input", (event) => {
     state.search = event.target.value;
+    renderSyllabus();
+});
+
+orderSelect?.addEventListener("change", (event) => {
+    state.order = event.target.value;
     renderSyllabus();
 });
 

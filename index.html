@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260511-4">
+    <link rel="stylesheet" href="styles.css?v=20260512-2">
 </head>
 <body>
     <div class="background-rotator" id="background-rotator" aria-hidden="true"></div>
@@ -142,6 +142,14 @@
                             <span>Buscar tecnica o tema</span>
                             <input id="search-input" type="search" placeholder="Ej. kote gaeshi, cuchillo, montada">
                         </label>
+                        <label class="search-box" for="order-select">
+                            <span>Ordenar por</span>
+                            <select id="order-select">
+                                <option value="progresion" selected>Progresion recomendada</option>
+                                <option value="alfabetico">Orden alfabetico</option>
+                                <option value="bloques">Numero de bloques</option>
+                            </select>
+                        </label>
                         <div class="filter-chips" id="filter-chips"></div>
                     </div>
                 </div>
@@ -170,7 +178,7 @@
         </div>
     </div>
 
-    <script src="temario.js?v=20260511-4"></script>
-    <script src="app.js?v=20260511-4"></script>
+    <script src="temario.js?v=20260512-1"></script>
+    <script src="app.js?v=20260512-1"></script>
 </body>
 </html>

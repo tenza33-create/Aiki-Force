@@ -1,15 +1,15 @@
 :root {
-    --bg: #f2efe8;
-    --surface: rgba(255, 250, 240, 0.9);
-    --surface-strong: #fff7e7;
-    --ink: #182127;
-    --muted: #5b666d;
-    --line: rgba(24, 33, 39, 0.12);
-    --accent: #a83b12;
-    --accent-strong: #7b2808;
-    --accent-soft: rgba(168, 59, 18, 0.12);
-    --forest: #27413a;
-    --shadow: 0 22px 60px rgba(24, 33, 39, 0.12);
+    --bg: #f0e9dd;
+    --surface: rgba(255, 250, 242, 0.92);
+    --surface-strong: #fff5e4;
+    --ink: #1a232a;
+    --muted: #4e5f67;
+    --line: rgba(26, 35, 42, 0.14);
+    --accent: #c0571f;
+    --accent-strong: #8c3510;
+    --accent-soft: rgba(192, 87, 31, 0.14);
+    --forest: #1f5a4f;
+    --shadow: 0 20px 55px rgba(20, 31, 39, 0.14);
 }
 
 * {
@@ -95,7 +95,7 @@ body::before {
     padding: 26px;
     border: 1px solid var(--line);
     border-radius: 28px;
-    background: linear-gradient(145deg, rgba(255, 249, 236, 0.95), rgba(250, 241, 224, 0.82));
+    background: linear-gradient(145deg, rgba(255, 248, 234, 0.96), rgba(247, 236, 214, 0.9));
     box-shadow: var(--shadow);
 }
 
@@ -584,6 +584,12 @@ h2 {
         linear-gradient(150deg, rgba(255, 251, 242, 0.94), rgba(250, 241, 224, 0.9));
 }
 
+.principles-section {
+    background:
+        radial-gradient(circle at top right, rgba(192, 87, 31, 0.18), transparent 48%),
+        linear-gradient(150deg, rgba(255, 250, 241, 0.94), rgba(248, 236, 212, 0.9));
+}
+
 .principles-section .section-heading {
     margin-bottom: 18px;
 }
@@ -665,8 +671,14 @@ h2 {
 
 .videos-section {
     background:
-        radial-gradient(circle at top left, rgba(39, 65, 58, 0.12), transparent 44%),
-        linear-gradient(160deg, rgba(255, 251, 244, 0.95), rgba(248, 238, 220, 0.9));
+        radial-gradient(circle at top left, rgba(31, 90, 79, 0.18), transparent 44%),
+        linear-gradient(160deg, rgba(253, 249, 241, 0.95), rgba(240, 233, 214, 0.92));
+}
+
+#temario {
+    background:
+        radial-gradient(circle at top right, rgba(196, 139, 31, 0.2), transparent 52%),
+        linear-gradient(150deg, rgba(255, 250, 243, 0.94), rgba(245, 236, 218, 0.92));
 }
 
 .videos-intro {
@@ -779,6 +791,17 @@ h2 {
     color: var(--ink);
 }
 
+.search-box select {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 16px;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.9);
+    font: inherit;
+    color: var(--ink);
+}
+
 .filter-chips {
     display: flex;
     flex-wrap: wrap;
@@ -796,6 +819,62 @@ h2 {
     background: var(--forest);
     color: #f8f1e5;
     border-color: transparent;
+}
+
+.chip.tag-todos,
+.meta-pill.tag-todos {
+    background: rgba(26, 35, 42, 0.08);
+    border-color: rgba(26, 35, 42, 0.2);
+    color: #2d3a42;
+}
+
+.chip.tag-impacto,
+.meta-pill.tag-impacto {
+    background: rgba(213, 111, 37, 0.14);
+    border-color: rgba(213, 111, 37, 0.34);
+    color: #8c3510;
+}
+
+.chip.tag-control,
+.meta-pill.tag-control {
+    background: rgba(31, 90, 79, 0.14);
+    border-color: rgba(31, 90, 79, 0.34);
+    color: #1f5a4f;
+}
+
+.chip.tag-proyeccion,
+.meta-pill.tag-proyeccion {
+    background: rgba(41, 88, 120, 0.14);
+    border-color: rgba(41, 88, 120, 0.34);
+    color: #2b5576;
+}
+
+.chip.tag-suelo,
+.meta-pill.tag-suelo {
+    background: rgba(125, 93, 61, 0.14);
+    border-color: rgba(125, 93, 61, 0.3);
+    color: #6f4f32;
+}
+
+.chip.tag-estrangulacion,
+.meta-pill.tag-estrangulacion {
+    background: rgba(109, 53, 95, 0.14);
+    border-color: rgba(109, 53, 95, 0.32);
+    color: #6d355f;
+}
+
+.chip.tag-armas,
+.meta-pill.tag-armas {
+    background: rgba(142, 44, 44, 0.14);
+    border-color: rgba(142, 44, 44, 0.32);
+    color: #7e2d2d;
+}
+
+.chip.tag-policial,
+.meta-pill.tag-policial {
+    background: rgba(35, 82, 128, 0.14);
+    border-color: rgba(35, 82, 128, 0.32);
+    color: #2a4f76;
 }
 
 .syllabus-grid {
@@ -935,7 +1014,8 @@ h2 {
         min-width: 0;
     }
 
-    .search-box input {
+    .search-box input,
+    .search-box select {
         min-height: 44px;
     }
 
