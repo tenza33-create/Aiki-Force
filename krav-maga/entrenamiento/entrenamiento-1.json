@@ -1,0 +1,79 @@
+{
+  "id": 1,
+  "nombre": "Entrenamiento 1",
+  "seccion": "Krav Maga",
+  "bloques": [
+    {
+      "nombre": "Calentamiento",
+      "items": [
+        "Calentamiento general estático",
+        "Calentamiento corriendo con reptamiento y rodando en varias direcciones",
+        "Golpeo jab y cross pasillo",
+        "Golpeo jab y cross golpeando al pau"
+      ]
+    },
+    {
+      "nombre": "Combo de golpes",
+      "items": [
+        "Jab, cross, crochet derecho e izquierda, patada testículo, cogida en Crunch y rodillas"
+      ]
+    },
+    {
+      "nombre": "Técnica de ataque desde el combo",
+      "items": [
+        "Rompimiento de cuello",
+        "Mataleon",
+        "Udegarami",
+        "Udegarami desde delante como expulsar en aikido"
+      ]
+    },
+    {
+      "nombre": "Técnica defensiva golpe circular",
+      "items": [
+        "Parar por dentro y mata león",
+        "Parar por dentro y udegarami",
+        "Parar por dentro y hijimiosae"
+      ]
+    },
+    {
+      "nombre": "Agarre cuello con dos manos cerrado (por delante y por detrás)",
+      "descripcion": "Levantando el brazo y cortando con el codo, queda perfecto para rodillazo y golpeo. Si se empuja frenar apalancando con el pie delantero o trasero.",
+      "items": [
+        "Parar por dentro y mata león",
+        "Parar por dentro y udegarami",
+        "Parar por dentro y hijimiosae"
+      ]
+    },
+    {
+      "nombre": "Ataque de cuchillo",
+      "subsecciones": [
+        {
+          "nombre": "Practicar el 360º",
+          "items": [
+            "Picahielo",
+            "Oriental",
+            "Frontal"
+          ]
+        },
+        {
+          "nombre": "Desarme para picahielo",
+          "items": [
+            "Desarme por la espalda con cavalier"
+          ]
+        },
+        {
+          "nombre": "Desarme para oriental",
+          "items": [
+            "Manipulación de codo y udegarami"
+          ]
+        },
+        {
+          "nombre": "Desarme para frontal",
+          "items": [
+            "Parada antebrazo de fuera y cavalier de kotegaeshi"
+          ]
+        }
+      ]
+    }
+  ]
+}

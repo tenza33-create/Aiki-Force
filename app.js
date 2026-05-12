@@ -24,6 +24,9 @@ const vipOffButton = document.getElementById("vip-off");
 const vipSection = document.getElementById("vip-zone");
 const vipTabs = Array.from(document.querySelectorAll("[data-vip-tab]"));
 const vipPanels = Array.from(document.querySelectorAll("[data-vip-panel]"));
+const trainingContainer = document.getElementById("krav-training-container");
+const trainingContent = document.getElementById("training-content");
+const trainingTabs = Array.from(document.querySelectorAll("[data-training]"));
 
 const VIP_PASSWORD = "135090";
 const VIP_STORAGE_KEY = "aiki_force_vip_unlocked";
@@ -288,6 +291,12 @@ function setupVipAccess() {
             setActiveVipTab(tabButton.dataset.vipTab);
         });
     });
+
+    trainingTabs.forEach((tabButton) => {
+        tabButton.addEventListener("click", () => {
+            setActiveTrainingTab(tabButton.dataset.training);
+        });
+    });
 }
 
 function renderPrinciples() {
@@ -478,6 +487,73 @@ function renderSyllabus() {
     }
 }
 
+async function loadTrainings() {
+    try {
+        const response = await fetch("krav-maga/entrenamiento/entrenamiento-1.json");
+        if (!response.ok) throw new Error("Error loading training");
+        const training = await response.json();
+        renderTraining(training);
+    } catch (error) {
+        console.error("Error loading training:", error);
+        trainingContent.innerHTML = `<p>Error cargando entrenamiento. Intenta mas tarde.</p>`;
+    }
+}
+
+function renderTraining(training) {
+    const html = `
+        <div class="training-details">
+            <h4>${training.nombre}</h4>
+            ${training.bloques
+                .map(
+                    (bloque) => `
+                <div class="training-bloque">
+                    <h5>${bloque.nombre}</h5>
+                    ${bloque.descripcion ? `<p class="bloque-description">${bloque.descripcion}</p>` : ""}
+                    ${
+                        bloque.items
+                            ? `<ul class="bloque-items">
+                        ${bloque.items.map((item) => `<li>${item}</li>`).join("")}
+                    </ul>`
+                            : ""
+                    }
+                    ${
+                        bloque.subsecciones
+                            ? bloque.subsecciones
+                                  .map(
+                                      (subseccion) => `
+                        <div class="training-subseccion">
+                            <h6>${subseccion.nombre}</h6>
+                            ${
+                                subseccion.items
+                                    ? `<ul class="subseccion-items">
+                                ${subseccion.items.map((item) => `<li>${item}</li>`).join("")}
+                            </ul>`
+                                    : ""
+                            }
+                        </div>
+                    `
+                                  )
+                                  .join("")
+                            : ""
+                    }
+                </div>
+            `
+                )
+                .join("")}
+        </div>
+    `;
+    trainingContent.innerHTML = html;
+}
+
+function setActiveTrainingTab(trainingNum) {
+    trainingTabs.forEach((tab) => {
+        const isActive = String(tab.dataset.training) === String(trainingNum);
+        tab.classList.toggle("active", isActive);
+        tab.setAttribute("aria-selected", String(isActive));
+    });
+    loadTrainings();
+}
+
 searchInput.addEventListener("input", (event) => {
     state.search = event.target.value;
     renderSyllabus();
@@ -496,3 +572,4 @@ renderSyllabus();
 setupBackgroundRotator();
 setupAutoplayVideos();
 setupVipAccess();
+loadTrainings();

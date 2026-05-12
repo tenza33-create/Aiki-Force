@@ -354,6 +354,116 @@ h2 {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 247, 231, 0.96));
 }
 
+.krav-training-container {
+    width: 100%;
+}
+
+.training-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.training-tab {
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(192, 87, 31, 0.18);
+    background: rgba(192, 87, 31, 0.08);
+    color: var(--accent-strong);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.training-tab.active,
+.training-tab:hover {
+    background: var(--accent);
+    color: #f8f1e5;
+    border-color: transparent;
+    transform: translateY(-1px);
+}
+
+.training-content {
+    padding: 16px 0;
+    animation: fadeIn 300ms ease;
+}
+
+.training-details h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent-strong);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+}
+
+.training-bloque {
+    margin-bottom: 24px;
+    padding: 16px;
+    border-left: 4px solid var(--accent);
+    background: rgba(192, 87, 31, 0.04);
+    border-radius: 8px;
+}
+
+.training-bloque h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--accent-strong);
+}
+
+.bloque-description {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.bloque-items,
+.subseccion-items {
+    margin: 12px 0 0 0;
+    padding-left: 24px;
+    list-style: disc;
+}
+
+.bloque-items li,
+.subseccion-items li {
+    margin: 8px 0;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.training-subseccion {
+    margin: 12px 0 0 16px;
+    padding: 12px;
+    border-left: 3px solid var(--forest);
+    background: rgba(31, 90, 79, 0.03);
+    border-radius: 6px;
+}
+
+.training-subseccion h6 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: var(--forest);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
     .topbar {
         align-items: flex-start;
     }
