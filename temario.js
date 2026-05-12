@@ -10,20 +10,20 @@ const AIKI_FORCE = {
     ],
     principles: [
         {
-            title: "Escalado proporcional",
-            description: "Se empieza por lectura, distancia y control. El daño solo entra cuando el contexto lo legitima y el control no basta."
+            title: "ESCALADO PROPORCIONAL",
+            description: "El sistema se inicia mediante la lectura del entorno, el manejo de la distancia y el control preventivo. El uso de la fuerza de impacto o daño solo se activa cuando el contexto legal lo legitima y las técnicas de control resultan insuficientes."
         },
         {
-            title: "Control del eje",
-            description: "Toda accion busca romper postura, alinear cadera y hombros del agresor y preservar tu base antes de actuar."
+            title: "CONTROL DEL EJE",
+            description: "Toda acción técnica tiene como prioridad el desequilibrio (Kuzushi). Se busca romper la postura del agresor, alineando su cadera y hombros fuera de su centro de gravedad, mientras se preserva la base y estabilidad propia en todo momento."
         },
         {
-            title: "Presion realista",
-            description: "La tecnica debe sostenerse con resistencia, fatiga, sorpresa y toma de decisiones bajo estres."
+            title: "PRESIÓN REALISTA",
+            description: "La técnica debe ser funcional bajo condiciones críticas. El entrenamiento se valida mediante la resistencia activa, la fatiga extrema, el factor sorpresa y la toma de decisiones bajo altos niveles de estrés físico y mental."
         },
         {
-            title: "Simplicidad operativa",
-            description: "Se priorizan respuestas que compartan mecanicas entre escenarios para entrenar menos y resolver mas."
+            title: "SIMPLICIDAD OPERATIVA",
+            description: "Se priorizan respuestas universales. El objetivo es utilizar mecánicas de movimiento similares para diferentes tipos de agresión, reduciendo el tiempo de reacción y permitiendo resolver más escenarios con un menor número de patrones motores."
         }
     ],
     escalation: [
