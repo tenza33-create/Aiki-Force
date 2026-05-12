@@ -1,0 +1,85 @@
+{
+  "id": 2,
+  "nombre": "Entrenamiento 2",
+  "seccion": "Krav Maga",
+  "bloques": [
+    {
+      "nombre": "Calentamiento",
+      "items": [
+        "Calentamiento general estático",
+        "Calentamiento corriendo con reptamiento y rodando en varias direcciones",
+        "Golpeo jab y cross pasillo",
+        "Golpeo rodillazos al pau cogiendo el cuello"
+      ]
+    },
+    {
+      "nombre": "Combo de golpes",
+      "items": [
+        "Jab, cross, crochet derecho e izquierda, patada testículo, cogida en Crunch y rodillas"
+      ]
+    },
+    {
+      "nombre": "Técnica de ataque desde el combo (sin patada ni crunch)",
+      "items": [
+        "Tirando al suelo bloqueando pierna",
+        "Pasando por debajo, cogiendo el cuello entre su brazo y mi cara y mata león"
+      ]
+    },
+    {
+      "nombre": "Técnica defensiva golpe recto (mano sable)",
+      "items": [
+        "Estrangulamiento con el brazo del oponente",
+        "Ikkyo (con doble tap) al codo para bajar y controlar",
+        "Hijimiosae",
+        "Ude-Ikkyo inverso: entrada como sable y golpe al mentón (krav maga), ude al hombro y pierna atrás e Ikkyo"
+      ]
+    },
+    {
+      "nombre": "Abrazo de cuello lateral (callejero)",
+      "items": [
+        "El clásico",
+        "El que se va a los ojos",
+        "El que se rueda"
+      ]
+    },
+    {
+      "nombre": "Abrazo de cuello frontal",
+      "items": []
+    },
+    {
+      "nombre": "Amenaza de cuchillo",
+      "subsecciones": [
+        {
+          "nombre": "Practicar el 360º",
+          "items": [
+            "Picahielo",
+            "Oriental",
+            "Frontal"
+          ]
+        },
+        {
+          "nombre": "Desarme para picahielo",
+          "items": [
+            "Desarme por la espalda con cavalier"
+          ]
+        },
+        {
+          "nombre": "Desarme para oriental",
+          "items": [
+            "Manipulación de codo y udegarami"
+          ]
+        },
+        {
+          "nombre": "Desarme para frontal",
+          "items": [
+            "Parada antebrazo de fuera y cavalier de kotegaeshi"
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Amenaza de pistola",
+      "items": []
+    }
+  ]
+}

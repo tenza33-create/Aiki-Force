@@ -487,9 +487,9 @@ function renderSyllabus() {
     }
 }
 
-async function loadTrainings() {
+async function loadTrainings(trainingNum = 1) {
     try {
-        const response = await fetch("krav-maga/entrenamiento/entrenamiento-1.json");
+        const response = await fetch(`krav-maga/entrenamiento/entrenamiento-${trainingNum}.json`);
         if (!response.ok) throw new Error("Error loading training");
         const training = await response.json();
         renderTraining(training);
@@ -551,7 +551,7 @@ function setActiveTrainingTab(trainingNum) {
         tab.classList.toggle("active", isActive);
         tab.setAttribute("aria-selected", String(isActive));
     });
-    loadTrainings();
+    loadTrainings(trainingNum);
 }
 
 searchInput.addEventListener("input", (event) => {
