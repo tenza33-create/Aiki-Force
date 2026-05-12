@@ -939,7 +939,9 @@ h2 {
     min-height: 22px;
     padding: 0 2px;
     border-radius: 999px;
-    color: var(--accent);
+    color: var(--accent-strong);
+    background: rgba(192, 87, 31, 0.08);
+    border: 1px solid rgba(192, 87, 31, 0.2);
     text-decoration: none;
     transition: transform 180ms ease, color 180ms ease;
 }
