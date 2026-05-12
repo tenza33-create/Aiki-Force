@@ -1,0 +1,27 @@
+{
+  "id": 1,
+  "nombre": "Desarme de boken",
+  "seccion": "Aikido",
+  "bloques": [
+    {
+      "nombre": "Lado izquierdo",
+      "items": [
+        "Kokyonague kokyuho",
+        "Kokyonague kokyuho (cruzando la pierna)",
+        "Ikkyo con punetazo (golpea la mano izquierda y la otra mano en el hueco del boken)",
+        "Kotegaeshi",
+        "Iriminague"
+      ]
+    },
+    {
+      "nombre": "Lado derecho",
+      "items": [
+        "Shehonague",
+        "Ikkyo",
+        "Udekiminague",
+        "Koshinague",
+        "Yonkyo (mano directa al yonkyo y la otra al sable)"
+      ]
+    }
+  ]
+}

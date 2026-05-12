@@ -24,9 +24,11 @@ const vipOffButton = document.getElementById("vip-off");
 const vipSection = document.getElementById("vip-zone");
 const vipTabs = Array.from(document.querySelectorAll("[data-vip-tab]"));
 const vipPanels = Array.from(document.querySelectorAll("[data-vip-panel]"));
-const trainingContainer = document.getElementById("krav-training-container");
-const trainingContent = document.getElementById("training-content");
 const trainingTabs = Array.from(document.querySelectorAll("[data-training]"));
+const trainingContentByDiscipline = {
+    aikido: document.getElementById("aikido-training-content"),
+    krav: document.getElementById("krav-training-content")
+};
 
 const VIP_PASSWORD = "135090";
 const VIP_STORAGE_KEY = "aiki_force_vip_unlocked";
@@ -294,7 +296,7 @@ function setupVipAccess() {
 
     trainingTabs.forEach((tabButton) => {
         tabButton.addEventListener("click", () => {
-            setActiveTrainingTab(tabButton.dataset.training);
+            setActiveTrainingTab(tabButton.dataset.discipline, tabButton.dataset.training);
         });
     });
 }
@@ -487,19 +489,24 @@ function renderSyllabus() {
     }
 }
 
-async function loadTrainings(trainingNum = 1) {
+async function loadTrainings(discipline, trainingNum = 1) {
+    const trainingContent = trainingContentByDiscipline[discipline];
+    if (!trainingContent) {
+        return;
+    }
+
     try {
-        const response = await fetch(`krav-maga/entrenamiento/entrenamiento-${trainingNum}.json`);
+        const response = await fetch(`${discipline}/entrenamiento/entrenamiento-${trainingNum}.json`);
         if (!response.ok) throw new Error("Error loading training");
         const training = await response.json();
-        renderTraining(training);
+        renderTraining(training, trainingContent);
     } catch (error) {
         console.error("Error loading training:", error);
         trainingContent.innerHTML = `<p>Error cargando entrenamiento. Intenta mas tarde.</p>`;
     }
 }
 
-function renderTraining(training) {
+function renderTraining(training, targetElement) {
     const html = `
         <div class="training-details">
             <h4>${training.nombre}</h4>
@@ -542,16 +549,19 @@ function renderTraining(training) {
                 .join("")}
         </div>
     `;
-    trainingContent.innerHTML = html;
+    targetElement.innerHTML = html;
 }
 
-function setActiveTrainingTab(trainingNum) {
-    trainingTabs.forEach((tab) => {
-        const isActive = String(tab.dataset.training) === String(trainingNum);
-        tab.classList.toggle("active", isActive);
-        tab.setAttribute("aria-selected", String(isActive));
-    });
-    loadTrainings(trainingNum);
+function setActiveTrainingTab(discipline, trainingNum) {
+    trainingTabs
+        .filter((tab) => tab.dataset.discipline === discipline)
+        .forEach((tab) => {
+            const isActive = String(tab.dataset.training) === String(trainingNum);
+            tab.classList.toggle("active", isActive);
+            tab.setAttribute("aria-selected", String(isActive));
+        });
+
+    loadTrainings(discipline, trainingNum);
 }
 
 searchInput.addEventListener("input", (event) => {
@@ -572,4 +582,5 @@ renderSyllabus();
 setupBackgroundRotator();
 setupAutoplayVideos();
 setupVipAccess();
-loadTrainings();
+loadTrainings("aikido", 1);
+loadTrainings("krav", 1);
