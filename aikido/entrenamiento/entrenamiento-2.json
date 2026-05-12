@@ -1,0 +1,44 @@
+{
+  "id": 2,
+  "nombre": "Kata de bo ikkyo",
+  "seccion": "Aikido",
+  "bloques": [
+    {
+      "nombre": "Kata de bo",
+      "items": [
+        "Posicion de inicio, bo lado derecho",
+        "Skip",
+        "Parada alta",
+        "Skip",
+        "Yokomen",
+        "Gyaku yokomen",
+        "Tenkai, cambio de agarre y skip",
+        "Skip, antes cambio de guardia normal (derecha)",
+        "Yokomen",
+        "Gyaku yokomen",
+        "Tenkai sin cambiar la guardia (izquierda)",
+        "Skip",
+        "Gyaku yokomen",
+        "Skip",
+        "Yokomen",
+        "Esconder bo",
+        "Barrido bajo",
+        "Skip bajo",
+        "Skip bajo cambiando de mano",
+        "Yokomen cortando sobaco (rodilla bajo)",
+        "Barrer bajo levantando",
+        "Skip",
+        "Skip cambiando la mano",
+        "Golpe mandibula hacia atras",
+        "Golpe mandibula hacia atras",
+        "Skip",
+        "Yokomen",
+        "Parada alta y luego cambiar posicion mano",
+        "Yokomen",
+        "Lanzar no llega, juego de manos protegiendo",
+        "Yokomen",
+        "Fin"
+      ]
+    }
+  ]
+}
