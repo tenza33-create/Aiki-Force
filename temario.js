@@ -108,32 +108,62 @@ const AIKI_FORCE = {
         },
         {
             title: "Golpes con las piernas",
-            description: "Armas de media y larga distancia para frenado, desestabilizacion y castigo funcional.",
+            description: "Modulo de impacto para cortar avance, romper estructura y preparar control o salida.",
             tags: ["impacto"],
             items: [
                 {
                     name: "Mae Geri",
-                    description: "Patada frontal directa y rapida hacia torso o rostro."
+                    description: "Patada frontal directa para detener entrada y ganar distancia.",
+                    details: [
+                        "Objetivo: abdomen, plexo o muslo frontal segun distancia.",
+                        "Aplicacion: tras guardia alta y paso corto de ajuste.",
+                        "Finalizacion: recuperar base y entrar a control de brazos."
+                    ]
                 },
                 {
                     name: "Mawashi Geri",
-                    description: "Patada circular al torso, costillas o cabeza con giro de cadera."
+                    description: "Patada circular para castigar lateral y desorganizar la postura.",
+                    details: [
+                        "Objetivo: costillas, zona media o pierna adelantada.",
+                        "Aplicacion: usar giro de cadera sin perder guardia de manos.",
+                        "Finalizacion: bajar pierna con angulo y continuar con combinacion corta."
+                    ]
                 },
                 {
                     name: "Mae Hiza Geri",
-                    description: "Rodillazo frontal al torso, abdomen o rostro para combate cercano."
+                    description: "Rodillazo frontal de corta distancia para reaccion inmediata.",
+                    details: [
+                        "Objetivo: abdomen, cadera o muslo cuando hay clinch.",
+                        "Aplicacion: controlar nuca o brazo para fijar al agresor.",
+                        "Finalizacion: empuje, separacion y reencuadre tactico."
+                    ]
                 },
                 {
                     name: "Yoko Geri",
-                    description: "Patada lateral dirigida a costillas, torso o cabeza."
+                    description: "Patada lateral de potencia para desplazar y frenar avance.",
+                    details: [
+                        "Objetivo: rodilla, cadera o costillas segun ventana.",
+                        "Aplicacion: talon como punto de impacto principal.",
+                        "Finalizacion: reposicionar apoyo y mantener linea de escape."
+                    ]
                 },
                 {
                     name: "Mawashi Hiza Geri",
-                    description: "Golpe circular con la rodilla a abdomen o costado."
+                    description: "Rodillazo circular para daño funcional en corto alcance.",
+                    details: [
+                        "Objetivo: costado, higado o muslo interno.",
+                        "Aplicacion: entrar con control de hombro y giro breve.",
+                        "Finalizacion: derribo corto o salida lateral."
+                    ]
                 },
                 {
                     name: "Ushiro Geri",
-                    description: "Patada trasera al torso o abdomen de un atacante que entra por retaguardia."
+                    description: "Patada trasera para respuesta de emergencia contra entrada por retaguardia.",
+                    details: [
+                        "Objetivo: abdomen o cadera del atacante que presiona atras.",
+                        "Aplicacion: mirar por encima del hombro antes de ejecutar.",
+                        "Finalizacion: girar completo, validar entorno y salir de linea."
+                    ]
                 }
             ]
         },
